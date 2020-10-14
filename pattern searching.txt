@@ -1,0 +1,8 @@
+int search(String text, String pat) {
+        if(text.contains(pat)){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }

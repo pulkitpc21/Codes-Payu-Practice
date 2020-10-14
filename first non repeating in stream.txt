@@ -1,0 +1,38 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args) throws Exception
+	 {
+	 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	 int t = Integer.parseInt(br.readLine().trim());
+	 while(t-->0){
+	     int n = Integer.parseInt(br.readLine().trim());
+	     char ch [] = new char[n];
+	     String str = br.readLine().trim().replaceAll("\\s","");
+	     nonRepeatingStream(str.toCharArray(),n);
+	     System.out.println();
+	 }
+	 }
+	 static void nonRepeatingStream(char []ch,int n ){
+	     int i=0;
+	     Set<Character> hs = new HashSet<>();
+	     Queue<Character> q = new LinkedList<>();
+	     while(i<n){
+	         if(!hs.contains(ch[i])){
+	             q.add(ch[i]);
+	             hs.add(ch[i]);
+	             System.out.print(q.peek()+" ");
+	         }
+	         else {
+	              q.remove(ch[i]);
+	              if(q.isEmpty())
+	              System.out.print(-1+" ");
+	              else 
+	              System.out.print(q.peek()+" ");
+	         }
+	         i++;
+	     }
+	 }
+}

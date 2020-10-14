@@ -1,0 +1,10 @@
+int atoi(String str)
+    {
+	try{
+	    int i=Integer.parseInt(str);
+	    return i;
+	}
+	catch(Exception e){
+	    return -1;
+	}
+    }

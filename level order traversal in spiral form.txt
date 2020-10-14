@@ -1,0 +1,42 @@
+class Spiral
+{
+      int height(Node node){
+          if(node==null)
+          return 0;
+          int l=1+height(node.left);
+          int r=1+height(node.right);
+          if(l>r)
+          return l;
+          else
+          return r;
+      }
+     void printGivenLevel(ArrayList<Integer> result,Node node,int level,boolean ltr){
+         if(node==null)
+         return;
+         if(level==1)
+         result.add(node.data);
+         else if(level>1){
+             if(ltr!=false){
+                 printGivenLevel(result,node.left,level-1,ltr);
+                 printGivenLevel(result,node.right,level-1,ltr);
+             }
+             else{
+                 printGivenLevel(result,node.right,level-1,ltr);
+                 printGivenLevel(result,node.left,level-1,ltr);
+             }
+         }
+     }
+      ArrayList<Integer> findSpiral(Node node) 
+      {
+           ArrayList<Integer> result = new ArrayList<Integer>();
+           if(node==null)
+           return result;
+           int h=height(node);
+           boolean ltr=false;
+           for(int i=1;i<=h;i++){
+               printGivenLevel(result,node,i,ltr);
+               ltr=!ltr;
+           }
+           return result;
+      }
+}
